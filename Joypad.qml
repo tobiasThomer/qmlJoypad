@@ -62,7 +62,7 @@ Item {
                 return (value < min) ? min : (value > max) ? max : value
             }
 
-            onPressed: {
+            onPressed: (touchPoints) => {
                 for (var i = 0; i<touchPoints.length; i++)
                 {
                     var pos = Qt.vector2d(touchPoints[i].x, touchPoints[i].y)
@@ -79,10 +79,10 @@ Item {
                 }
             }
 
-            onReleased: {
+            onReleased: (touchPoints) => {
                 for (var i = 0; i<touchPoints.length; i++)
                 {
-                    if (touchPoints[i].pointId == validPoint.pointId)
+                    if (touchPoints[i].pointId === validPoint.pointId)
                     {
                         validPoint = 0
                         if (horizontalAnimation) xAnimation.start()
@@ -91,10 +91,10 @@ Item {
                 }
             }
 
-            onUpdated: {
+            onUpdated: (touchPoints) => {
                 for (var i = 0; i<touchPoints.length; i++)
                 {
-                    if (touchPoints[i].pointId == validPoint.pointId)
+                    if (touchPoints[i].pointId === validPoint.pointId)
                     {
                         // slightly adjust the thumb towards the pointer
                         thumb.offset = thumb.offset.times(0.98)
