@@ -62,7 +62,7 @@ Item {
                 return (value < min) ? min : (value > max) ? max : value
             }
 
-            onPressed: {
+            onPressed: (touchPoints) => {
                 for (var i = 0; i<touchPoints.length; i++)
                 {
                     var pos = Qt.vector2d(touchPoints[i].x, touchPoints[i].y)
@@ -79,7 +79,7 @@ Item {
                 }
             }
 
-            onReleased: {
+            onReleased: (touchPoints) => {
                 for (var i = 0; i<touchPoints.length; i++)
                 {
                     if (touchPoints[i].pointId == validPoint.pointId)
@@ -91,7 +91,7 @@ Item {
                 }
             }
 
-            onUpdated: {
+            onUpdated: (touchPoints) => {
                 for (var i = 0; i<touchPoints.length; i++)
                 {
                     if (touchPoints[i].pointId == validPoint.pointId)
