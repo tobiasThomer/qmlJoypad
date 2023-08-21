@@ -82,7 +82,7 @@ Item {
             onReleased: (touchPoints) => {
                 for (var i = 0; i<touchPoints.length; i++)
                 {
-                    if (touchPoints[i].pointId == validPoint.pointId)
+                    if (touchPoints[i].pointId === validPoint.pointId)
                     {
                         validPoint = 0
                         if (horizontalAnimation) xAnimation.start()
@@ -94,7 +94,7 @@ Item {
             onUpdated: (touchPoints) => {
                 for (var i = 0; i<touchPoints.length; i++)
                 {
-                    if (touchPoints[i].pointId == validPoint.pointId)
+                    if (touchPoints[i].pointId === validPoint.pointId)
                     {
                         // slightly adjust the thumb towards the pointer
                         thumb.offset = thumb.offset.times(0.98)
